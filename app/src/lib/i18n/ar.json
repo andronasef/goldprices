@@ -1,0 +1,21 @@
+{
+	"components": {
+		"nav": {
+			"title": "اسعار الدهب اليوم"
+		}
+	},
+	"pages": {
+		"homepage": {
+			"components": {
+				"prices-table": {
+					"title": "اسعار الدهب الان",
+					"head-row": {
+						"unit": "الوحدة",
+						"buy": "شراء",
+						"sell": "بيع"
+					}
+				}
+			}
+		}
+	}
+}

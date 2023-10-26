@@ -1,21 +1,22 @@
 <script>
-	import { Page, Navbar, Block, Button, List, ListItem, BlockTitle } from 'konsta/svelte';
+	import goldApiClient from '$lib/apiClient';
+	import PricesTable from '$lib/components/prices-table.svelte';
+	import Space from '$lib/components/space.svelte';
+	import { getCurrentDateTime } from '$lib/utils/date';
+	import { createQuery } from '@tanstack/svelte-query';
+	import { BlockTitle, Preloader } from 'konsta/svelte';
+	import { _ } from 'svelte-i18n';
+
+	const goldPrices = createQuery({
+		queryFn: async () => (await goldApiClient.get('eg')).data
+	});
 </script>
 
-<Page>
-	<Navbar title="سعر الدهب اليوم" />
-
-	<Block strong>
-		<p>Here is your SvelteKit & Konsta UI app. Let's see what we have here.</p>
-	</Block>
-	<BlockTitle>Navigation</BlockTitle>
-	<List>
-		<ListItem href="/about/" title="About" />
-		<ListItem href="/form/" title="Form" />
-	</List>
-
-	<Block strong class="flex space-x-4">
-		<Button>Button 1</Button>
-		<Button>Button 2</Button>
-	</Block>
-</Page>
+{#if $goldPrices.isPending}
+	<Preloader />
+{:else}
+	<BlockTitle large={true}>{$_('pages.homepage.components.prices-table.title')}</BlockTitle>
+	<BlockTitle medium={true}>{getCurrentDateTime()}</BlockTitle>
+	<Space size={5} />
+	<PricesTable prices={$goldPrices.data} />
+{/if}
