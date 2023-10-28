@@ -19,9 +19,18 @@ const config: SvelteKitPWAOptions = {
 	},
 	manifest: {
 		name: 'اسعار الدهب اليوم في مصر',
+		id: 'com.andronasef.goldprices',
 		short_name: 'سعر الدهب',
 		description: 'تطيبق يساعدك في معرفه اخر اسعار سوق الدهب',
 		theme_color: '#007aff',
+		background_color: '#ffffff',
+		lang: 'ar',
+		dir: 'rtl',
+		start_url: '/',
+		scope: '/',
+		publicPath: '/',
+		display: 'standalone',
+		categories: ['finance', 'business', 'utilities'],
 		icons: [
 			{
 				src: 'pwa-192x192.png',
