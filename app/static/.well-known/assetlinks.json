@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.increaseapps.goldprices",
+        "sha256_cert_fingerprints": ["E4:1F:EF:28:43:AF:B3:92:DC:84:B6:55:B1:05:32:B7:E1:6D:32:6D:34:66:AA:CF:A1:97:C0:EE:07:EB:38:D0"]
+      }
+    }]
